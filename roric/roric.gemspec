@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rorirc/version'
+require 'roric/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rorirc"
-  spec.version       = Rorirc::VERSION
+  spec.name          = "roric"
+  spec.version       = Roric::VERSION
   spec.authors       = ["Ricahrd Wilson"]
   spec.email         = ["r.crawfordwilson@gmail.com"]
   spec.description   = %q{TODO: Write a gem description}
