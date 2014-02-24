@@ -1,5 +1,7 @@
+require 'pry'
 require "roric/version"
+require "roric/server"
 
 module Roric
-  # Your code goes here...
+  LINEBREAK = "\r\n".freeze
 end

@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
-gem 'rorirc', path: '../rorirc'
+gem 'roric', path: '../roric'
 gem 'rspec'
+gem 'pry'
 
