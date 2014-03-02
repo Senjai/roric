@@ -2,13 +2,21 @@ PATH
   remote: ../roric
   specs:
     roric (0.0.1)
+      celluloid (~> 0.15.0)
+      celluloid-io (~> 0.15.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
+    celluloid-io (0.15.0)
+      celluloid (>= 0.15.0)
+      nio4r (>= 0.5.0)
     coderay (1.1.0)
     diff-lcs (1.2.5)
     method_source (0.8.2)
+    nio4r (1.0.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -22,6 +30,7 @@ GEM
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.5)
     slop (3.4.7)
+    timers (1.1.0)
 
 PLATFORMS
   ruby
