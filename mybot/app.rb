@@ -16,7 +16,7 @@ app = Roric::Application.start!
 # Give it enough time to connect before issuing commands.
 sleep 10
 
-freenode = Celluloid::Actor[:freenode]
+freenode = app[:freenode]
 freenode.write_msg "JOIN #sentest"
 freenode.write_msg "PRIVMSG #sentest :Hello World!"
 

@@ -22,6 +22,10 @@ class Roric::Application
     self
   end
 
+  def [](*args)
+    Celluloid::Actor[*args]
+  end
+
   def supervisor
     Celluloid::Actor[:roric_application_supervisor] ||= Celluloid::SupervisionGroup.run!
   end
