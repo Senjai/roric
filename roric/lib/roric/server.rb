@@ -102,8 +102,8 @@ class Roric::Server
 
   def process_messages
     begin
-      while line = @connection.gets.chomp
-        puts line
+      while line = @connection.gets
+        puts line.chomp if line
 
         if line =~ /roricquit/
           break
