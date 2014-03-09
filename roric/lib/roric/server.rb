@@ -43,7 +43,7 @@ class Roric::Server
     end
 
     def subclasses
-      @classes
+      @classes || []
     end
   end
 

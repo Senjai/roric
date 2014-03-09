@@ -1,4 +1,3 @@
-require 'pry'
 class Roric::Application
   include Celluloid::Logger
 
