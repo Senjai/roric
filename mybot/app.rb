@@ -20,5 +20,4 @@ freenode = Celluloid::Actor[:freenode]
 freenode.write_msg "JOIN #sentest"
 freenode.write_msg "PRIVMSG #sentest :Hello World!"
 
-Celluloid::Actor.join(app.supervisor)
-
+app.sleep_until_terminated

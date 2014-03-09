@@ -25,4 +25,8 @@ class Roric::Application
   def supervisor
     Celluloid::Actor[:roric_application_supervisor] ||= Celluloid::SupervisionGroup.run!
   end
+
+  def sleep_until_terminated
+    Celluloid::Actor.join(supervisor)
+  end
 end
