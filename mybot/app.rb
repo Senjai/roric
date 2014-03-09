@@ -11,10 +11,7 @@ class Freenode < Roric::Server
   nick "RoricTest2"
 end
 
-puts "Subclasses: #{Roric::Server.subclasses}"
-
-# Create a bot and supervise it.
-Freenode.supervise_as :freenode, args: [true]
+Roric::Application.new.start!
 
 # Give it enough time to connect before issuing commands.
 sleep 10
