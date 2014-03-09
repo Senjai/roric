@@ -1,3 +1,10 @@
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start do
+    add_filter "vendor/bundle"
+  end
+end
+
 require 'roric'
 require 'rspec/autorun'
 require 'pry'
