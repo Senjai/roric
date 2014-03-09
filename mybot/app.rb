@@ -11,7 +11,7 @@ class Freenode < Roric::Server
   nick "RoricTest2"
 end
 
-Roric::Application.new.start!
+app = Roric::Application.start!
 
 # Give it enough time to connect before issuing commands.
 sleep 10
@@ -20,10 +20,5 @@ freenode = Celluloid::Actor[:freenode]
 freenode.write_msg "JOIN #sentest"
 freenode.write_msg "PRIVMSG #sentest :Hello World!"
 
-# Wait for the bot to exit gracefully (i.e. not with a crash)
-while Celluloid::Actor.join(Celluloid::Actor[:freenode])
-  # If it crashed, it should have been restarted, check for this.
-  puts "Checking for supervisor restart."
-  sleep 5
-  break unless Celluloid::Actor[:freenode]
-end
+Celluloid::Actor.join(app.supervisor)
+

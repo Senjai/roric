@@ -48,9 +48,10 @@ class Roric::Server
     end
   end
 
-  def initialize autostart = false
+  def initialize autostart = false, supervisor = nil
     @config = self.class.config
     return unless valid_config?
+    @supervisor = supervisor
 
     async.start! if autostart
   end
@@ -93,12 +94,11 @@ class Roric::Server
         end
       end
       @socket.write("QUIT :Quitting\r\n")
-      terminate
-      signal "quit", ""
+      @supervisor.async.terminate if @supervisor
     rescue Exception => e
       error "Error in read loop: #{e.message}."
-      # After logging, re-raise to restart the actor if supervised.
-      raise Exception
+      # Re raise after logging
+      raise e
     ensure
       @socket.close
     end

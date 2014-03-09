@@ -1,3 +1,4 @@
+require 'pry'
 class Roric::Application
   include Celluloid::Logger
 
@@ -14,8 +15,14 @@ class Roric::Application
   end
 
   def start!
-    Celluloid::Actor[:roric_application_supervisor] = Celluloid::SupervisionGroup.run!
-    freenode = @servers.first
-    Celluloid::Actor[:roric_application_supervisor].supervise_as freenode.config[:name], Freenode, args: [true]
+    @servers.each do |server|
+      supervisor.supervise_as server.config[:name], server, true, supervisor
+    end
+
+    self
+  end
+
+  def supervisor
+    Celluloid::Actor[:roric_application_supervisor] ||= Celluloid::SupervisionGroup.run!
   end
 end
