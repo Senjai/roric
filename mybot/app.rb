@@ -17,7 +17,7 @@ app = Roric::Application.start!
 sleep 10
 
 freenode = app[:freenode]
-freenode.write_msg "JOIN #sentest"
-freenode.write_msg "PRIVMSG #sentest :Hello World!"
+freenode.connection.write "JOIN #sentest"
+freenode.connection.write "PRIVMSG #sentest :Hello World!"
 
 app.sleep_until_terminated

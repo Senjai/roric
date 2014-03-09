@@ -8,6 +8,8 @@ class Roric::Application
     def start!
       new.start!
     end
+
+    private :new
   end
 
   def initialize
